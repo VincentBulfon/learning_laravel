@@ -22,3 +22,8 @@ Route::get(
     '/posts',
     [PostController::class, 'index']
 );
+// l'post:id est passé à la class PostController et est récupérée sous forme de paramètre de la fonction 'show' qu'elle contient
+Route::get(
+    '/posts/{post:title}',
+    [PostController::class, 'show']
+);

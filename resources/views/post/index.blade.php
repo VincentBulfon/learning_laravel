@@ -8,5 +8,16 @@
 
     <body>
         <h1>Liste des posts</h1>
+        @if(count($posts))
+        <ul>
+            @foreach($posts as $post)
+            <li>
+                <a href="/{{$post->id}}">{{$post->title}}</a>
+            </li>
+            @endforeach
+        </ul>
+        @else
+        <p>Il n'y a pas encore de posts sur cette page</p>
+        @endif
     </body>
 </html>
