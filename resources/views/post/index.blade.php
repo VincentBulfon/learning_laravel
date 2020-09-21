@@ -12,7 +12,9 @@
         <ul>
             @foreach($posts as $post)
             <li>
-                <a href="/{{$post->id}}">{{$post->title}}</a>
+                <a href="/posts/{{$post->slug}}"
+                    >{{$post->title}} ({{$post->comments_count}})</a
+                >
             </li>
             @endforeach
         </ul>

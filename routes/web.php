@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,16 @@ Route::get(
     '/posts',
     [PostController::class, 'index']
 );
+
+Route::get('/posts/create', [PostController::class, 'create']);
+
 // l'post:id est passé à la class PostController et est récupérée sous forme de paramètre de la fonction 'show' qu'elle contient
+
+Route::post('/posts', [PostController::class, 'store']);
+
 Route::get(
-    '/posts/{post:title}',
+    '/posts/{post:slug}',
     [PostController::class, 'show']
 );
+
+Route::resource('/comments', CommentController::class);
