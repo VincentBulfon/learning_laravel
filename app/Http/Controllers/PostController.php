@@ -19,11 +19,14 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('post.create');
+        $message = `Attention c'est dangereux ici`;
+
+        return view('post.create', compact('message'));
     }
 
     public function show(Post $post)
     {
+        //charge tous les commentaires qui sont en relation avec le post en une seul requête au lieu d'en faire une pour récupérer tous les posts puis une à chaque post pour récupérer les commentaires associés
         $post->load('comments');
 
         return view('post.show', compact('post'));
